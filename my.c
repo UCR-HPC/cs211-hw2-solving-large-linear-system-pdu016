@@ -73,4 +73,22 @@ void mydtrsv(char UPLO, double *A, double *B, int n, int *ipiv)
     }
 }
 
+void my_f(double *A, double *B, int n)
+{
+    int *ipiv = (int *)malloc(n * sizeof(int));
+    for (int i = 0; i < n; i++)
+        ipiv[i] = i;
+
+    if (mydgetrf(A, ipiv, n) == 0) {
+        printf("LU factorization failed: coefficient matrix is singular.\n");
+        free(ipiv);
+        return;
+    }
+
+    mydtrsv('L', A, B, n, ipiv);
+    mydtrsv('U', A, B, n, ipiv);
+
+    free(ipiv);
+}
+
 #endif

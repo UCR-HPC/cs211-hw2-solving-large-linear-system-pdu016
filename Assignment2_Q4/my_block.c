@@ -106,4 +106,39 @@ void my_block_f(double *A, double *B, int n)
     free(ipiv);
 }
 
+// Complete test function to test my_block_f with different block sizes from pad.txt
+void test_my_block_f()
+{
+    int sizes[] = {1000, 2000, 3000, 4000, 5000};  // Same sizes as in Q2 for performance comparison
+    int num_sizes = sizeof(sizes) / sizeof(sizes[0]);
+
+    for (int i = 0; i < num_sizes; i++) {
+        int n = sizes[i];
+        double *A = (double *)malloc(n * n * sizeof(double));
+        double *B = (double *)malloc(n * sizeof(double));
+
+        // Initialize matrix A and vector B with random values
+        srand(time(NULL));
+        for (int j = 0; j < n * n; j++) {
+            A[j] = ((double)rand() / RAND_MAX) * 10;  // Random values between 0 and 10
+        }
+        for (int j = 0; j < n; j++) {
+            B[j] = ((double)rand() / RAND_MAX) * 10;  // Random values between 0 and 10
+        }
+
+        // Measure the time taken for LU decomposition with blocking
+        struct timeval start, end;
+        gettimeofday(&start, NULL);
+        my_block_f(A, B, n);
+        gettimeofday(&end, NULL);
+
+        double time_taken = (end.tv_sec - start.tv_sec) + 1e-6 * (end.tv_usec - start.tv_usec);
+        double gflops = (2.0 / 3.0) * n * n * n / (time_taken * 1e9);
+        printf("Matrix size: %d, Time taken: %.6f seconds, Performance: %.2f Gflops\n", n, time_taken, gflops);
+
+        free(A);
+        free(B);
+    }
+}
+
 #endif
