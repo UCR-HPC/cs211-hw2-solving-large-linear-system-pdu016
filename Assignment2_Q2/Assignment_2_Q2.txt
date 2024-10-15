@@ -1,0 +1,29 @@
+[pdu016@cluster-001-login-node cs211-hw2-solving-large-linear-system-pdu016]$ ./main
+Matrix size: 1000, Time taken: 0.14 seconds, Performance: 4.90 Gflops
+Matrix size: 2000, Time taken: 1.63 seconds, Performance: 3.28 Gflops
+Matrix size: 3000, Time taken: 6.49 seconds, Performance: 2.78 Gflops
+Matrix size: 4000, Time taken: 16.36 seconds, Performance: 2.61 Gflops
+Matrix size: 5000, Time taken: 32.28 seconds, Performance: 2.58 Gflops
+
+
+
+[pdu016@cluster-001-login-node cs211-hw2-solving-large-linear-system-pdu016]$ ./main lapack 1000
+n=1000, pad=1
+time=0.056236s
+Performance: 11.85 Gflops
+[pdu016@cluster-001-login-node cs211-hw2-solving-large-linear-system-pdu016]$ ./main lapack 2000
+n=2000, pad=1
+time=0.229035s
+Performance: 23.29 Gflops
+[pdu016@cluster-001-login-node cs211-hw2-solving-large-linear-system-pdu016]$ ./main lapack 3000
+n=3000, pad=1
+time=0.664594s
+Performance: 27.08 Gflops
+[pdu016@cluster-001-login-node cs211-hw2-solving-large-linear-system-pdu016]$ ./main lapack 4000
+n=4000, pad=1
+time=1.362358s
+Performance: 31.32 Gflops
+[pdu016@cluster-001-login-node cs211-hw2-solving-large-linear-system-pdu016]$ ./main lapack 5000
+n=5000, pad=1
+time=2.691370s
+Performance: 30.96 Gflops

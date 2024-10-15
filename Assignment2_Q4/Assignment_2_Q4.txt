@@ -1,0 +1,6 @@
+[pdu016@cluster-001-login-node cs211-hw2-solving-large-linear-system-pdu016]$ ./main
+Matrix size: 1000, Time taken: 0.792828 seconds, Performance: 0.84 Gflops
+Matrix size: 2000, Time taken: 6.442068 seconds, Performance: 0.83 Gflops
+Matrix size: 3000, Time taken: 21.934598 seconds, Performance: 0.82 Gflops
+Matrix size: 4000, Time taken: 52.082852 seconds, Performance: 0.82 Gflops
+Matrix size: 5000, Time taken: 101.900013 seconds, Performance: 0.82 Gflops
